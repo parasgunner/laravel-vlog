@@ -21,5 +21,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('frontend.index');
 // });
 
+// index page 
+Route::get('/','Frontend\HomeController@index')->name('home');
 
-route::get('/','Frontend\HomeController@index');
+
+//contact us page
+Route::get('/contact','Frontend\HomeController@contact')->name('contact');
+
+// about us page 
+Route::get('/about','Frontend\HomeController@about')->name('about');
+
+
+// sample page
+Route::get('/sample','Frontend\HomeController@sample')->name('sample');
