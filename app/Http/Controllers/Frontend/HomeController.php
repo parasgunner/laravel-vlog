@@ -27,9 +27,22 @@ class HomeController extends Controller
         return view('frontend.sample');
     }
 
+    // about addpost 
+    public function addPost(){
+        return view('frontend.addPost');
+    }
+
+
     // about single vlog page
     public function singleVlog($id){
         $vlog =Vlog::findOrFail($id);
         return view('frontend.vlog',compact('vlog'));
+    }
+    public function createPost(Request $request){
+        $inputs = $request->all();
+        $inputs['date'] = date('y-m-d');
+        Vlog::create($inputs);
+        return view('frontend.addPost')->with('success','Post Created Successfully');
+        
     }
 }

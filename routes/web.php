@@ -37,3 +37,8 @@ Route::get('/sample','Frontend\HomeController@sample')->name('sample');
 
 // single vlog page
 Route::get('/vlogs/{id}','Frontend\HomeController@singleVlog')->name('vlogs.single');
+
+// add post
+Route::get('/add-post','Frontend\HomeController@addPost')->name('addPost');
+// create post
+Route::post('/add-post','Frontend\HomeController@createPost')->name('createPost');
