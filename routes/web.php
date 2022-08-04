@@ -34,3 +34,6 @@ Route::get('/about','Frontend\HomeController@about')->name('about');
 
 // sample page
 Route::get('/sample','Frontend\HomeController@sample')->name('sample');
+
+// single vlog page
+Route::get('/vlogs/{id}','Frontend\HomeController@singleVlog')->name('vlogs.single');
