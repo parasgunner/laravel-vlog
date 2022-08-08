@@ -21,27 +21,35 @@ use Illuminate\Support\Facades\Route;
 //     return view('frontend.index');
 // });
 
-// index page 
-Route::get('/','Frontend\HomeController@index')->name('home');
+// index page
+Route::get('/', 'Frontend\HomeController@index')->name('home');
 
 
 //contact us page
-Route::get('/contact','Frontend\HomeController@contact')->name('contact');
+Route::get('/contact', 'Frontend\HomeController@contact')->name('contact');
 
-// about us page 
-Route::get('/about','Frontend\HomeController@about')->name('about');
+// about us page
+Route::get('/about', 'Frontend\HomeController@about')->name('about');
 
 
 // sample page
-Route::get('/sample','Frontend\HomeController@sample')->name('sample');
+Route::get('/sample', 'Frontend\HomeController@sample')->name('sample');
 
 // single vlog page
-Route::get('/vlogs/{id}','Frontend\HomeController@singleVlog')->name('vlogs.single');
+Route::get('/vlogs/{id}', 'Frontend\HomeController@singleVlog')->name('vlogs.single');
 
 // add post
-Route::get('/add-post','Frontend\HomeController@addPost')->name('addPost');
+Route::get('/add-post', 'Frontend\HomeController@addPost')->name('addPost');
 // create post
-Route::post('/add-post','Frontend\HomeController@createPost')->name('createPost');
+Route::post('/add-post', 'Frontend\HomeController@createPost')->name('createPost');
 
-// delete post 
-Route::get('/delete-post/{id}','Frontend\HomeController@deletePost')->name('deletePost');
+// delete post
+Route::get('/delete-post/{id}', 'Frontend\HomeController@deletePost')->name('deletePost');
+
+
+// add post
+Route::get('/edit-post/{id}', 'Frontend\HomeController@editPost')->name('editPost');
+
+
+// create post
+Route::patch('/edit-post/{id}', 'Frontend\HomeController@updatePost')->name('updatePost');

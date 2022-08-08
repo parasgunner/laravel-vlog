@@ -1,10 +1,9 @@
-
 @extends('frontend.layouts.master')
 
 
 @section('content')
     <!-- Page Header-->
-    <header class="masthead" style="background-image: url('{{url('vlog/assets/img/home-bg.jpg')}}')">
+    <header class="masthead" style="background-image: url('{{ url('vlog/assets/img/home-bg.jpg') }}')">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -20,32 +19,34 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             @if (Session::has('success'))
-            <div class='success'>
-                {{Session::get('success')}}
-            </div>
-                
+                <div class='success'>
+                    {{ Session::get('success') }}
+                </div>
             @endif
             <div class="col-md-10 col-lg-8 col-xl-7">
                 @foreach ($vlogs as $vlog)
                     <!-- Post preview-->
-                <div class="post-preview">
-                    <a href="{{route('vlogs.single', $vlog->id)}}">
-                        <h2 class="post-title">{{$vlog->title}}</h2>
-                        <h3 class="post-subtitle">{{$vlog->sub_title}}</h3>
-                    </a>
-                    <p class="post-meta">
-                        Posted by
-                        <a href="#!">Paras Shrestha</a>
-                        on {{$vlog->date}}
-                    </p>
-                    <a href="{{route('deletePost',$vlog->id)}}" class="btn btn-danger btn-sm">
-                       Delete
-                    </a>
-                </div>
-                <!-- Divider-->
-                <hr class="my-4" />
+                    <div class="post-preview">
+                        <a href="{{ route('vlogs.single', $vlog->id) }}">
+                            <h2 class="post-title">{{ $vlog->title }}</h2>
+                            <h3 class="post-subtitle">{{ $vlog->sub_title }}</h3>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#!">Paras Shrestha</a>
+                            on {{ $vlog->date }}
+                        </p>
+                        <a href="{{ route('deletePost', $vlog->id) }}" class="btn btn-danger btn-sm" title="Delete">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                        <a href="{{ route('editPost', $vlog->id) }}" class="btn btn-warning btn-sm" title="Edit">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
                 @endforeach
-                
+
                 {{-- <!-- Post preview-->
                 <div class="post-preview">
                     <a href="{{route('sample')}}"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
@@ -86,18 +87,14 @@
                 <!-- Divider-->
                 <hr class="my-4" /> --}}
                 <!-- Pager-->
-                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{{route('sample')}}">Older Posts →</a></div>
+                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase"
+                        href="{{ route('sample') }}">Older Posts →</a></div>
             </div>
         </div>
     </div>
-
 @endsection
 
 
 @section('script')
-<script>
-
-</script>
-
+    <script></script>
 @endsection
-        
