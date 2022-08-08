@@ -45,4 +45,12 @@ class HomeController extends Controller
         return view('frontend.addPost')->with('success','Post Created Successfully');
         
     }
+    public function deletePost($id){
+        $vlog =Vlog::findOrFail($id);
+        $vlog->delete();
+        session()->flash('success','Post Deleted Successfully');
+        return redirect()->route('home');
+        
+        
+    }
 }

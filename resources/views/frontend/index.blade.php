@@ -19,11 +19,17 @@
     <!-- Main Content-->
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
+            @if (Session::has('success'))
+            <div class='success'>
+                {{Session::get('success')}}
+            </div>
+                
+            @endif
             <div class="col-md-10 col-lg-8 col-xl-7">
                 @foreach ($vlogs as $vlog)
                     <!-- Post preview-->
                 <div class="post-preview">
-                    <a href="{{route('sample')}}">
+                    <a href="{{route('vlogs.single', $vlog->id)}}">
                         <h2 class="post-title">{{$vlog->title}}</h2>
                         <h3 class="post-subtitle">{{$vlog->sub_title}}</h3>
                     </a>
@@ -32,6 +38,9 @@
                         <a href="#!">Paras Shrestha</a>
                         on {{$vlog->date}}
                     </p>
+                    <a href="{{route('deletePost',$vlog->id)}}" class="btn btn-danger btn-sm">
+                       Delete
+                    </a>
                 </div>
                 <!-- Divider-->
                 <hr class="my-4" />

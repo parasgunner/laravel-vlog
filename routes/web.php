@@ -42,3 +42,6 @@ Route::get('/vlogs/{id}','Frontend\HomeController@singleVlog')->name('vlogs.sing
 Route::get('/add-post','Frontend\HomeController@addPost')->name('addPost');
 // create post
 Route::post('/add-post','Frontend\HomeController@createPost')->name('createPost');
+
+// delete post 
+Route::get('/delete-post/{id}','Frontend\HomeController@deletePost')->name('deletePost');
